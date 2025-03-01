@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "a3c5b5e0-91cc-4322-bcd9-cc71629b3cf9",
+		"name": "Examen Practico JMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2301804"
+	},
+	"item": [
+		{
+			"name": "Guardar pago",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"concept\": \"Pago de motoneta\",\n    \"quantityProduct\": 1,\n    \"shippingPerson\": \"Juan Mateo\",\n    \"depositPerson\": \"Raquel\",\n    \"amount\": 30000.00,\n    \"status\": {\n        \"statusId\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payment",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener estatus de pago",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/payment/status?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"status"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar estatus",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"statusId\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payment/status/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"status",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
